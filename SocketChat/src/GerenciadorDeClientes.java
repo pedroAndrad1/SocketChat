@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GerenciadorDeClientes extends Thread {
 		
@@ -28,8 +29,9 @@ public class GerenciadorDeClientes extends Thread {
 					 escritor = new PrintWriter(cliente.getOutputStream(),true);
 					
 					escritor.println("Qual o seu nome?");
-					
+				
 					String msg = leitor.readLine();
+					
 					this.nomeCliente = msg.replaceAll(",","");
 					
 					escritor.println("Bem vindo ao servidor, " + this.nomeCliente);
@@ -73,7 +75,7 @@ public class GerenciadorDeClientes extends Thread {
 					}
 					
 				} catch (IOException e) {
-					System.err.println("O cliente fechou a conexão");
+					System.err.println("Um cliente fechou a conexão");
 				}
 			
 		}

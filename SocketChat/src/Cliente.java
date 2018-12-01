@@ -9,15 +9,19 @@ import java.util.Scanner;
 public class Cliente {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		
+		
 		System.out.println("Bem-vindo!");
+		String IP = "";
+		String porta = "";
 		System.out.println("Informe o enderço IP do servidor");
-		String IP = sc.nextLine();
+		IP = sc.nextLine();
 		System.out.println("Informe a porta do servidor");
-		int porta = sc.nextInt();
+		porta = sc.nextLine();
 		
 		try {
 			
-			final Socket cliente = new Socket(IP,porta);
+			final Socket cliente = new Socket(IP, Integer.parseInt(porta));
 			
 			//Abri essa Thread para o cliente poder receber mensagens e enviar mensagens ao mesmo tempo.
 			new Thread(){
